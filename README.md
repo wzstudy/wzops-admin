@@ -31,7 +31,7 @@
 
 ## 平台简介
 
-💡 [fu-admin-web](https://gitee.com/fuadmin/fu-admin-web) 采用 VUE3，TS 开发。 💡 [fu-admin-backend](https://gitee.com/fuadmin/fu-admin-backend) 采用 Python，Django 和 Django-Ninija 开发。数据库支持MySql，SqlServer，Sqlite。
+💡 [fu-admin-web](https://gitee.com/fuadmin/fu-admin/tree/master/web) 采用 VUE3，TS 开发。 💡 [fu-admin-backend](https://gitee.com/fuadmin/fu-admin/tree/master/backend) 采用 Python，Django 和 Django-Ninija 开发。数据库支持MySql，SqlServer，Sqlite。
 
 - 🧑‍🤝‍🧑 前端采用[VbenAdmin](https://vvbin.cn/doc-next) 、[Vue3](https://cn.vuejs.org/)、[Ant Design Vue](https://www.antdv.com/docs/vue/getting-started-cn)。
 - 👭 后端采用 Python 语言 Django 框架以及强大的 [Django Ninja](https://django-ninja.rest-framework.com/)。
@@ -88,7 +88,7 @@ Redis(可选，最新版)
 
 ```bash
 # 克隆项目
-git https://gitee.com/fuadmin/fu-admin.git
+git clone https://gitee.com/fuadmin/fu-admin.git
 
 # 进入项目目录
 cd web
@@ -108,11 +108,11 @@ yarn run dev
 
 ```bash
 # 克隆项目
-git https://gitee.com/fuadmin/fu-admin.git
+git clone https://gitee.com/fuadmin/fu-admin.git
 # 进入项目目录
 cd backend
 # 在 `env.py` 中配置数据库信息
-# 默认是Mysql，如果使用SqlServer，qing在requirements.txt中打开 
+# 默认是Mysql，如果使用SqlServer，请在requirements.txt中打开 
    mssql-django==1.1.2 
    pyodbc==4.0.32
 # 安装依赖环境
