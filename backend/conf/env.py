@@ -30,3 +30,13 @@ ENABLE_LOGIN_ANALYSIS_LOG = True  # 启动登录详细概略获取(通过调用a
 
 # 是否开启演示环境，开启后增 删 改功能失效
 DEMO = False
+
+# 跨域配置 
+if DEBUG:
+    CORS_ALLOW_ALL_ORIGINS = True
+
+# CORS_ALLOWED_ORIGINS = [
+#     'http://localhost:8080',
+#     'http://127.0.0.1:8080',
+#     'http://web.example.com'
+# ]
