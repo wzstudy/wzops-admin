@@ -10,7 +10,7 @@ from system.router import system_router
 from utils.fu_auth import GlobalAuth
 from utils.fu_ninja import FuNinjaAPI
 
-api = FuNinjaAPI(auth=GlobalAuth)
+api = FuNinjaAPI(auth=GlobalAuth())
 
 
 # 统一处理server异常
