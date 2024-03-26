@@ -93,10 +93,7 @@ def update_user(request, user_id: int, payload: SchemaIn):
 @router.get("/user", response=List[SchemaOut])
 @paginate(MyPagination)
 def list_user(request, filters: Filters = Query(...)):
-    #print(f"...... in list_user, filters : {filters}")
     qs = retrieve(request, Users, filters)
-    #print(f"...... in list_user, qs : {qs}")
-
     return qs
 
 
