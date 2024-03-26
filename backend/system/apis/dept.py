@@ -85,7 +85,6 @@ def get_dept(request, dept_id: int):
 
 @router.get("/dept/list/tree")
 def list_dept_tree(request, filters: Filters = Query(...)):
-    #print(f"...... in list_dept_tree, filters : {filters}")
     qs = retrieve(request, Dept, filters).values()
     dept_tree = list_to_tree(list(qs))
     return FuResponse(data=dept_tree)
