@@ -58,17 +58,12 @@ class GlobalAuth(HttpBearer):
                     if request_path in WHITE_LIST:
                         return token
                     else:
-                        print(f"in okk 02 time_now：{time_now}")
                         menuIds = user.role.values_list('permission__id', flat=True)
-                        print(f"in okk 02 time_now：{time_now}, {menuIds}")
-                        print(f"in okk 02 time_now：{time_now}, request_path: {request_path}")
                         queryset = MenuButton.objects.filter(id__in=menuIds, api__regex=request_path,
                                                              method=METHOD[request_method])
-                        print(f"in okk 02 queryset: {queryset}")
                         if queryset.exists():
                             return token
                         else:
-                            print("in okk 02 no right")
                             raise TimeoutError(403, '没有权限')
             # cache_token = cache.get(token_user_id)
             # if token == cache_token:
@@ -81,7 +76,6 @@ def data_permission(request, filters: FuFilters):
     
     
     user_info = get_user_info_from_token(request)
-    print(f"in data_permission 001， user_info： {user_info}")
     
     if user_info['is_superuser']:
         return filters
@@ -92,7 +86,6 @@ def data_permission(request, filters: FuFilters):
     # 如果有多个角色，取数据权限最大的角色
     data_range = max(list(data_range_qs))
     
-    print(f"in data_permission 001， data_range： {data_range}")
     # 仅本人数据权限
     if data_range == 0:
         filters.creator_id = user_info['id']
@@ -104,7 +97,6 @@ def data_permission(request, filters: FuFilters):
     # 本部门及以下数据权限
     if data_range == 2:
         dept_and_below_ids = get_dept(user_info['dept'])
-        print(f"in data_permission 001， dept_and_below_ids： {dept_and_below_ids}")
         filters.belong_dept__in = dept_and_below_ids
 
     # 自定义数据权限
