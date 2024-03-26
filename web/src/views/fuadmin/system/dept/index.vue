@@ -5,7 +5,7 @@
         <Space style="height: 40px">
           <a-button
             type="primary"
-            v-auth="['post:add']"
+            v-auth="['dept:add']"
             preIcon="ant-design:plus-outlined"
             @click="handleCreate"
           >
@@ -13,7 +13,7 @@
           </a-button>
           <a-button
             type="error"
-            v-auth="['post:delete']"
+            v-auth="['dept:delete']"
             preIcon="ant-design:delete-outlined"
             @click="handleBulkDelete"
           >

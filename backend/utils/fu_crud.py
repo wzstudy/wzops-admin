@@ -66,22 +66,34 @@ def update(request, id, data, model):
     dict_data['modifier'] = user_info['name']
     instance = get_object_or_404(model, id=id)
     for attr, value in dict_data.items():
+        print(f"in update : attr: {attr},  value: {value}")
         setattr(instance, attr, value)
     instance.save()
     return instance
 
 
 def retrieve(request, model, filters: FuFilters = FuFilters()):
+    print(f"...................................in retrieve ， {model}, filters: {filters}")
     filters = data_permission(request, filters)
     if filters is not None:
         # 将filters空字符串转换为None
         for attr, value in filters.__dict__.items():
             if getattr(filters, attr) == '':
                 setattr(filters, attr, None)
-        query_set = model.objects.filter(**filters.dict(exclude_none=True))
+        
+        print(f"in retrieve ， filters： {filters}")
+        abc = filters.dict(exclude_none=True)
+        print(f"in retrieve ， abc: {abc}")
+        query_set = model.objects.filter(**abc)
+        print(f"in retrieve ， query_set： {query_set}")
     else:
+        print("...................................in retrieve ， all")
         query_set = model.objects.all()
     return query_set
+
+
+def retrieveNoFilter(model):
+    return model.objects.all()
 
 
 def export_data(request, model, scheme, export_fields):

@@ -53,6 +53,12 @@ def create_user(request, data: SchemaIn):
     post = data_dic.pop('post')
     role = data_dic.pop('role')
     user = create(request, data_dic, Users)
+    
+    # modified by hp begin
+    user.belong_dept = user.dept_id
+    user.save()
+    # modified by hp end
+    
     # 为多对多关系添加数据
     user.post.set(post)
     user.role.set(role)
@@ -68,6 +74,11 @@ def delete_user(request, user_id: int):
 @router.put("/user/{user_id}", response=SchemaOut)
 def update_user(request, user_id: int, payload: SchemaIn):
     user = get_object_or_404(Users, id=user_id)
+    
+    # modified by hp begin
+    payload.belong_dept = payload.dept_id
+    # modified by hp end
+    
     for attr, value in payload.dict().items():
         if attr == 'role':
             user.role.set(value)
@@ -82,7 +93,10 @@ def update_user(request, user_id: int, payload: SchemaIn):
 @router.get("/user", response=List[SchemaOut])
 @paginate(MyPagination)
 def list_user(request, filters: Filters = Query(...)):
+    #print(f"...... in list_user, filters : {filters}")
     qs = retrieve(request, Users, filters)
+    #print(f"...... in list_user, qs : {qs}")
+
     return qs
 
 

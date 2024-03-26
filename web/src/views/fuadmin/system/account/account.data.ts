@@ -176,7 +176,8 @@ export const accountFormSchema: FormSchema[] = [
         value: 'id',
       },
       getPopupContainer: () => document.body,
-    },
+    },    
+    rules: rules.rule('required4NonSuperuser', "请选择用户所在的部门"),    
   },
   {
     field: 'home_path',

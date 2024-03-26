@@ -12,7 +12,7 @@ from django.shortcuts import get_object_or_404
 from ninja import Field, ModelSchema, Query, Router, Schema
 from ninja.pagination import paginate
 from system.models import Menu, Role, MenuButton
-from utils.fu_crud import create, delete, retrieve
+from utils.fu_crud import create, delete, retrieve,retrieveNoFilter
 from utils.fu_ninja import FuFilters, MyPagination
 from utils.fu_response import FuResponse
 from utils.list_to_tree import list_to_tree
@@ -89,7 +89,7 @@ def list_role(request, filters: Filters = Query(...)):
 
 @router.get("/role/all/list", response=List[SchemaOut])
 def all_list_role(request):
-    qs = retrieve(request, Role)
+    qs = retrieveNoFilter(Role)
     return qs
 
 

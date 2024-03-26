@@ -22,7 +22,7 @@ class Initialize(CoreInitialize):
             {
                 "id": 1,
                 "modifier": "超级管理员",
-                "belong_dept": None,
+                "belong_dept": 1,
                 "creator_id": 1,
                 "update_datetime": datetime.datetime.now(),
                 "create_datetime": datetime.datetime.now(),
@@ -38,7 +38,7 @@ class Initialize(CoreInitialize):
             {
                 "id": 2,
                 "modifier": "超级管理员",
-                "belong_dept": None,
+                "belong_dept": 2,
                 "creator_id": 1,
                 "update_datetime": datetime.datetime.now(),
                 "create_datetime": datetime.datetime.now(),
@@ -54,7 +54,7 @@ class Initialize(CoreInitialize):
             {
                 "id": 3,
                 "modifier": "超级管理员",
-                "belong_dept": None,
+                "belong_dept": 3,
                 "creator_id": 1,
                 "update_datetime": datetime.datetime.now(),
                 "create_datetime": datetime.datetime.now(),
@@ -70,7 +70,7 @@ class Initialize(CoreInitialize):
             {
                 "id": 4,
                 "modifier": "超级管理员",
-                "belong_dept": None,
+                "belong_dept": 4,
                 "creator_id": 1,
                 "update_datetime": datetime.datetime.now(),
                 "create_datetime": datetime.datetime.now(),
@@ -86,7 +86,7 @@ class Initialize(CoreInitialize):
             {
                 "id": 5,
                 "modifier": "超级管理员",
-                "belong_dept": None,
+                "belong_dept": 5,
                 "creator_id": 1,
                 "update_datetime": datetime.datetime.now(),
                 "create_datetime": datetime.datetime.now(),
@@ -102,7 +102,7 @@ class Initialize(CoreInitialize):
             {
                 "id": 6,
                 "modifier": "超级管理员",
-                "belong_dept": None,
+                "belong_dept": 6,
                 "creator_id": 1,
                 "update_datetime": datetime.datetime.now(),
                 "create_datetime": datetime.datetime.now(),
@@ -1476,7 +1476,7 @@ class Initialize(CoreInitialize):
                 "user_type": 0,
                 "dept_id": 2,
                 "status": 1,
-                "belong_dept": None,
+                "belong_dept": 2,
                 "avatar": None,
                 "creator_id": None
             }
