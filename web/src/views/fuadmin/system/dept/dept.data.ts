@@ -99,6 +99,7 @@ export const formSchema: FormSchema[] = [
       },
       getPopupContainer: () => document.body,
     },
+    rules: rules.rule('required4NonSuperuser', "请选择上级部门"),   
   },
 
   {

@@ -13,6 +13,7 @@ import { SIDE_BAR_BG_COLOR_LIST, HEADER_PRESET_BG_COLOR_LIST } from './designSet
 
 const primaryColor = '#0960bd';
 
+// ! 改动后需要清空浏览器缓存
 // ! You need to clear the browser cache after the change
 const setting: ProjectConfig = {
   // Whether to show the configuration button
@@ -22,7 +23,7 @@ const setting: ProjectConfig = {
   showDarkModeToggle: true,
 
   // `Settings` button position
-  settingButtonPosition: SettingButtonPositionEnum.AUTO,
+  settingButtonPosition: SettingButtonPositionEnum.HEADER,
 
   // Permission mode
   permissionMode: PermissionModeEnum.BACK,

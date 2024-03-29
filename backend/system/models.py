@@ -410,3 +410,6 @@ class GeneratorTemplate(CoreModel):
         verbose_name = '代码生成器模板'
         verbose_name_plural = verbose_name
         ordering = ('-create_datetime',)
+
+
+

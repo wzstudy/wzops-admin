@@ -42,8 +42,14 @@ class SchemaOut(ModelSchema):
 
 
 @router.post("/dept", response=SchemaOut)
-def create_dept(request, data: SchemaIn):
+def create_dept(request, data: SchemaIn):    
     dept = create(request, data, Dept)
+    
+    # modified by hp begin
+    dept.belong_dept = dept.id
+    dept.save();
+    # modified by hp end    
+    
     return dept
 
 
@@ -55,6 +61,11 @@ def delete_dept(request, dept_id: int):
 
 @router.put("/dept/{dept_id}", response=SchemaOut)
 def update_dept(request, dept_id: int, data: SchemaIn):
+    
+    # modified by hp begin
+    data.belong_dept = dept_id
+    # modified by hp end
+    
     dept = update(request, dept_id, data, Dept)
     return dept
 

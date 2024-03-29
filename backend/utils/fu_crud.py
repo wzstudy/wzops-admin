@@ -78,10 +78,16 @@ def retrieve(request, model, filters: FuFilters = FuFilters()):
         for attr, value in filters.__dict__.items():
             if getattr(filters, attr) == '':
                 setattr(filters, attr, None)
-        query_set = model.objects.filter(**filters.dict(exclude_none=True))
+        
+        abc = filters.dict(exclude_none=True)
+        query_set = model.objects.filter(**abc)
     else:
         query_set = model.objects.all()
     return query_set
+
+
+def retrieveNoFilter(model):
+    return model.objects.all()
 
 
 def export_data(request, model, scheme, export_fields):

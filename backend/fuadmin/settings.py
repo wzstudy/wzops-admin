@@ -280,7 +280,8 @@ TOKEN_LIFETIME = 12 * 60 * 60
 
 # 接口白名单，不需要授权直接访问
 WHITE_LIST = ['/api/system/userinfo', '/api/system/permCode', '/api/system/menu/route/tree', '/api/system/user/*',
-              '/api/system/user/set/repassword']
+              '/api/system/user/set/repassword','/api/system/dept/list/tree','/api/system/dict_item/by/code', '/api/system/post/all/list',
+              '/api/system/role/all/list']
 
 # 接口日志记录
 API_LOG_ENABLE = True
