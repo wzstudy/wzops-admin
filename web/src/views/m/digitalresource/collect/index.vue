@@ -1,11 +1,11 @@
 <template>
   <div>
-    <BasicTable @register="registerTable" @fetch-success="onFetchSuccess">
+    <BasicTable @register="registerTable">
       <template #tableTitle>
         <Space style="height: 40px">
           <a-button
             type="primary"
-            v-auth="['dept:add']"
+            v-auth="['ppingg:add']"
             preIcon="ant-design:plus-outlined"
             @click="handleCreate"
           >
@@ -13,17 +13,30 @@
           </a-button>
           <a-button
             type="error"
-            v-auth="['dept:delete']"
+            v-auth="['ppingg:delete']"
             preIcon="ant-design:delete-outlined"
             @click="handleBulkDelete"
           >
             {{ t('common.delText') }}
           </a-button>
+          <BasicUpload
+            :maxSize="20"
+            :maxNumber="1"
+            @change="handleChange"
+            class="my-5"
+            type="warning"
+            :text="t('common.importText')"
+            v-auth="['ppingg:update']"
+          />
+          <a-button
+            type="success"
+            v-auth="['ppingg:update']"
+            preIcon="carbon:cloud-download"
+            @click="handleExportData"
+          >
+            {{ t('common.exportText') }}
+          </a-button>
         </Space>
-      </template>
-      <template #toolbar>
-        <a-button type="primary" @click="expandAll">{{ t('common.expandText') }}</a-button>
-        <a-button type="primary" @click="collapseAll">{{ t('common.collapseText') }}</a-button>
       </template>
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'action'">
@@ -31,17 +44,17 @@
             :actions="[
               {
                 type: 'button',
-                color: 'primary',
-                auth: ['dept:update'],
                 icon: 'clarity:note-edit-line',
+                color: 'primary',
+                auth: ['ppingg:update'],
                 onClick: handleEdit.bind(null, record),
               },
               {
+                icon: 'ant-design:delete-outlined',
                 type: 'button',
                 color: 'error',
-                auth: ['dept:delete'],
-                icon: 'ant-design:delete-outlined',
                 placement: 'left',
+                auth: ['ppingg:delete'],
                 popConfirm: {
                   title: t('common.delHintText'),
                   confirm: handleDelete.bind(null, record.id),
@@ -52,52 +65,49 @@
         </template>
       </template>
     </BasicTable>
-    <DeptDrawer @register="registerDrawer" @success="handleSuccess" />
+    <Drawer @register="registerDrawer" @success="handleSuccess" />
   </div>
 </template>
 <script lang="ts">
-  import { defineComponent, nextTick } from 'vue';
+  import { defineComponent } from 'vue';
 
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
-
+  import { usePermission } from '/@/hooks/web/usePermission';
   import { useDrawer } from '/@/components/Drawer';
-  import DeptDrawer from './DeptDrawer.vue';
-
-  import { columns, searchFormSchema } from './dept.data';
-  import { getDeptList, deleteItem } from './dept.api';
-  import { message, Space } from 'ant-design-vue';
+  import Drawer from './drawer.vue';
+  import { Space } from 'ant-design-vue';
+  import { BasicUpload } from '/@/components/Upload';
+  import { deleteItem, getList, exportData, importData } from './api';
+  import { columns, searchFormSchema } from './data';
+  import { message } from 'ant-design-vue';
   import { useMessage } from '/@/hooks/web/useMessage';
+  import { downloadByData } from '/@/utils/file/download';
   import { useI18n } from '/@/hooks/web/useI18n';
-
   export default defineComponent({
-    name: 'DeptManagement',
-    components: { BasicTable, DeptDrawer, TableAction, Space },
+    name: 'ppingg',
+    components: { BasicTable, Drawer, TableAction, BasicUpload, Space },
     setup() {
       const { t } = useI18n();
+
       const [registerDrawer, { openDrawer }] = useDrawer();
       const { createConfirm } = useMessage();
-      const [registerTable, { reload, expandAll, collapseAll, getSelectRows }] = useTable({
-        title: '部门列表',
-        api: getDeptList,
+      const { hasPermission } = usePermission();
+      const [registerTable, { reload, getSelectRows }] = useTable({
+        api: getList,
         columns,
         formConfig: {
           labelWidth: 80,
           schemas: searchFormSchema,
         },
+        useSearchForm: true,
+        showTableSetting: true,
+        tableSetting: { fullScreen: true },
+        bordered: true,
+        showIndexColumn: false,
         rowSelection: {
           type: 'checkbox',
         },
-        isTreeTable: true,
-        pagination: false,
-        striped: false,
-        useSearchForm: true,
-        showTableSetting: true,
-        bordered: true,
-        showIndexColumn: false,
-        canResize: false,
-        tableSetting: { fullScreen: true },
         actionColumn: {
-          align: 'left',
           width: 150,
           title: t('common.operationText'),
           dataIndex: 'action',
@@ -124,7 +134,7 @@
         await reload();
       }
 
-      async function handleBulkDelete() {
+      function handleBulkDelete() {
         if (getSelectRows().length == 0) {
           message.warning(t('common.batchDelHintText'));
         } else {
@@ -143,13 +153,21 @@
         }
       }
 
-      function handleSuccess() {
-        reload();
+      async function handleChange(list: string[]) {
+        console.log(list[0]);
+        await importData({ path: list[0] });
+        message.success('导入成功');
+        await reload();
       }
 
-      function onFetchSuccess() {
-        // 演示默认展开所有表项
-        nextTick(expandAll);
+      async function handleExportData() {
+        const response = await exportData();
+        await downloadByData(response.data, 'ppingg.xlsx');
+      }
+
+      function handleSuccess() {
+        message.success(t('common.successText'));
+        reload();
       }
 
       return {
@@ -159,10 +177,11 @@
         handleEdit,
         handleDelete,
         handleSuccess,
-        onFetchSuccess,
-        expandAll,
-        collapseAll,
+        hasPermission,
         handleBulkDelete,
+        getSelectRows,
+        handleExportData,
+        handleChange,
         t,
       };
     },

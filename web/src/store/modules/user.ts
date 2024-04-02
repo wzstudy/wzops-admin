@@ -133,7 +133,7 @@ export const useUserStore = defineStore({
         userInfo.roles = [];
         this.setRoleList([]);
       }
-      this.setUserInfo(userInfo);
+      this.setUserInfo(userInfo);      
       return userInfo;
     },
     /**

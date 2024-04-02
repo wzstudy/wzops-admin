@@ -1,14 +1,21 @@
 import { dateUtil } from '/@/utils/dateUtil';
 // import {duplicateCheck} from "/@/views/system/user/user.api";
 import { useI18n } from '/@/hooks/web/useI18n';
+import { useUserStore } from '/@/store/modules/user';
+
 const { t } = useI18n();
+
 export const rules = {
+  userStore : useUserStore(),
   rule(type, required) {
     if (type === 'email') {
       return this.email(required);
     }
     if (type === 'phone') {
       return this.phone(required);
+    }
+    if (type === 'required4NonSuperuser') {      
+      return this.required4NonSuperuser(required);
     }
   },
   email(required) {
@@ -94,6 +101,21 @@ export const rules = {
           }
           if (value !== values.password) {
             return Promise.reject(t('common.account.confirmPasswordMsg'));
+          }
+          return Promise.resolve();
+        },
+      },
+    ];
+  },  
+  required4NonSuperuser(text) {
+    const userInfo = this.userStore.getUserInfo;
+    let myrequired = !userInfo.is_superuser;    
+    return [
+      {
+        required: myrequired,
+        validator: (_, value) => {
+          if (!value && myrequired ) {
+            return Promise.reject(text);
           }
           return Promise.resolve();
         },

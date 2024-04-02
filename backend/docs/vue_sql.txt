@@ -1,0 +1,14 @@
+#  .\mysqldump.exe -u root -p fuadmin system_menu --default-character-set=utf8mb4 --where="id >=37"   > f:/temp/a.txt
+
+#系统菜单设置
+
+delete from `system_menu` where id >= 500;
+
+INSERT INTO `system_menu` VALUES 
+(500,NULL,'超级管理员',NULL,'2024-04-02 16:10:56.847142','2024-04-02 13:46:37.200483',500,'ant-design:book-outlined','数字资源',NULL,0,0,'/m/digitalresource','/m/digitalresource/collect','/generator/ppingg/index.vue',NULL,1,0,0,NULL,NULL),
+(501,NULL,'超级管理员',NULL,'2024-04-02 16:14:27.948158','2024-04-02 16:14:27.948158',1,'ant-design:money-collect-outlined','资源采集',NULL,0,1,'digitalresource_collect',NULL,'/m/digitalresource/collect/index','DigitalresourceCollect',1,0,0,1,500),
+(502,NULL,'超级管理员',NULL,'2024-04-02 16:14:27.948158','2024-04-02 16:14:27.948158',2,'ant-design:money-collect-outlined','资源审核',NULL,0,1,'digitalresource_check',NULL,'/m/digitalresource/check/index','DigitalresourceCheck',1,0,0,1,500),
+(503,NULL,'超级管理员',NULL,'2024-04-02 16:14:27.948158','2024-04-02 16:14:27.948158',2,'ant-design:money-collect-outlined','账目管理',NULL,0,1,'digitalresource_account',NULL,'/m/digitalresource/account/index','DigitalresourceAccount',1,0,0,1,500),
+(504,NULL,'超级管理员',NULL,'2024-04-02 16:14:27.948158','2024-04-02 16:14:27.948158',2,'ant-design:money-collect-outlined','利用管理',NULL,0,1,'digitalresource_utilize',NULL,'/m/digitalresource/utilize/index','DigitalresourceUtilize',1,0,0,1,500),
+(505,NULL,'超级管理员',NULL,'2024-04-02 16:14:27.948158','2024-04-02 16:14:27.948158',2,'ant-design:money-collect-outlined','知识产权管理',NULL,0,1,'digitalresource_patent',NULL,'/m/digitalresource/patent/index','DigitalresourcePatent',1,0,0,1,500),
+(506,NULL,'超级管理员',NULL,'2024-04-02 16:14:27.948158','2024-04-02 16:14:27.948158',2,'ant-design:money-collect-outlined','数字资源回收站',NULL,0,1,'digitalresource_recycled',NULL,'/m/digitalresource/recycled/index','DigitalresourceRecycled',1,0,0,1,500);

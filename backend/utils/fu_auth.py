@@ -73,7 +73,10 @@ class GlobalAuth(HttpBearer):
 
 
 def data_permission(request, filters: FuFilters):
+    
+    
     user_info = get_user_info_from_token(request)
+    
     if user_info['is_superuser']:
         return filters
     user = Users.objects.get(id=user_info['id'])
@@ -82,7 +85,7 @@ def data_permission(request, filters: FuFilters):
 
     # 如果有多个角色，取数据权限最大的角色
     data_range = max(list(data_range_qs))
-
+    
     # 仅本人数据权限
     if data_range == 0:
         filters.creator_id = user_info['id']
