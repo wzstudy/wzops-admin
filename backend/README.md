@@ -38,27 +38,7 @@
 - 💏 特别鸣谢：[VbenAdmin](https://github.com/vbenjs/vue-vben-admin) 、[Ant Design Vue](https://github.com/vueComponent/ant-design-vue)。
 - 💡 特别感谢[jetbrains](https://www.jetbrains.com/) 为本开源项目提供免费的 IntelliJ IDEA 授权。
 
-## 在线体验
 
-👩‍👧‍👦 演示地址：[http://175.24.184.165:8080](http://175.24.184.165:8080)
-
-- 账号：superadmin
-
-- 密码：123456
-
-
-## 交流
-
-- FuAdmin 交流群：726947525
-
-<img src="backend/utils/picture/qq.png" alt="qq 群" style="zoom: 25%;" />
-
-## 源码地址
-
-|        | 项目地址                                |
-|--------|-------------------------------------|
-| github | https://github.com/FuAdmin/fu-admin |
-| 码云     | https://gitee.com/wzops/fu-admin  | 
 
 ## 内置功能
 
