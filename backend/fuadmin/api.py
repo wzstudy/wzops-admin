@@ -3,7 +3,7 @@
 # @Author  : 臧成龙
 # @FileName: api.py
 # @Software: PyCharm
-from demo.router import demo_router
+from apps.demo.router import demo_router
 from system.router import system_router
 from utils.fu_auth import GlobalAuth
 from utils.fu_ninja import FuNinjaAPI

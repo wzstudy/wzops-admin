@@ -7,7 +7,7 @@
 
 from typing import List
 
-from demo.models import Demo
+from apps.demo.models import Demo
 from ninja import Field, ModelSchema, Query, Router
 from ninja.pagination import paginate
 from utils.fu_crud import (
