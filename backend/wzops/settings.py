@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_celery_results',
     'system',
     'apps.demo',
+    'apps.browser',
     'generator',
 ]
 
