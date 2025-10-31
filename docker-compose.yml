@@ -1,13 +1,13 @@
 version: "3"
 
 services:
-    fuadmin-django:
+    wzops-django:
         build:
             context: .
             dockerfile: ./docker/django/Dockerfile
-        container_name: fuadmin-django
+        container_name: wzops-django
         depends_on:
-            - fuadmin-mysql
+            - wzops-mysql
         environment:
             TZ: Asia/Shanghai
         ports:
@@ -19,28 +19,28 @@ services:
             network:
                 ipv4_address: 177.8.0.12
 
-    fuadmin-web:
-        container_name: fuadmin-web
+    wzops-web:
+        container_name: wzops-web
         build:
             context: ./
             dockerfile: ./docker/web/Dockerfile
         depends_on:
-            - fuadmin-django
+            - wzops-django
         ports:
             - 8080:8080
         expose:
             - 8080
         volumes:
-            - ./docker/web/nginx.conf:/etc/nginx/conf.d/fuadmin.conf
+            - ./docker/web/nginx.conf:/etc/nginx/conf.d/wzops.conf
         environment:
             TZ: Asia/Shanghai
         networks:
             network:
                 ipv4_address: 177.8.0.11
 
-    fuadmin-mysql:
+    wzops-mysql:
         image: mysql:8
-        container_name: fuadmin-mysql
+        container_name: wzops-mysql
         restart: always
         ports:
             - 33060:3306
@@ -48,7 +48,7 @@ services:
             - 3306
         environment:
             MYSQL_ROOT_PASSWORD: "root"
-            MYSQL_DATABASE: "fuadmin"
+            MYSQL_DATABASE: "wzops"
             TZ: Asia/Shanghai
         volumes:
             - mysql:/var/lib/mysql
@@ -56,9 +56,9 @@ services:
             network:
                 ipv4_address: 177.8.0.13
 
-    fuadmin-redis:
+    wzops-redis:
         image: redis:7-alpine
-        container_name: fuadmin-redis
+        container_name: wzops-redis
         restart: on-failure
         environment:
             - TZ=Asia/Shanghai
@@ -72,13 +72,13 @@ services:
             network:
                 ipv4_address: 177.8.0.15
 
-    fuadmin-celery:
+    wzops-celery:
         build:
             context: .
             dockerfile: ./docker/celery/Dockerfile
-        container_name: fuadmin-celery
+        container_name: wzops-celery
         depends_on:
-            - fuadmin-mysql
+            - wzops-mysql
         environment:
             TZ: Asia/Shanghai
         restart: always

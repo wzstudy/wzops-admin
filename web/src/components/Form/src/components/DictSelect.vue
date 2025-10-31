@@ -37,7 +37,7 @@
   import { LoadingOutlined } from '@ant-design/icons-vue';
   import { useI18n } from '/@/hooks/web/useI18n';
   import { propTypes } from '/@/utils/propTypes';
-  import { getListByCode } from '/@/views/fuadmin/system/data-dict/dict_item/dict_item.api';
+  import { getListByCode } from '/@/views/wzops/system/data-dict/dict_item/dict_item.api';
   import SvgIcon from '/@/components/Icon/src/SvgIcon.vue';
 
   type OptionsItem = { label: string; value: string; icon: string; disabled?: boolean };

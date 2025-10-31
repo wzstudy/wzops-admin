@@ -2,7 +2,7 @@ import logging
 
 from django.core.management.base import BaseCommand
 
-from fuadmin import settings
+from wzops import settings
 
 logger = logging.getLogger(__name__)
 

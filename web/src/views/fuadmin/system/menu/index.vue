@@ -62,7 +62,7 @@
   import { defineComponent, nextTick } from 'vue';
 
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
-  import { getMenuList, deleteItem } from '/@/views/fuadmin/system/menu/menu.api';
+  import { getMenuList, deleteItem } from '/@/views/wzops/system/menu/menu.api';
   import { useDrawer } from '/@/components/Drawer';
   import MenuDrawer from './MenuDrawer.vue';
   import AddMenuButton from './add_button/index.vue';

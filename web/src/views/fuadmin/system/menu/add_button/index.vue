@@ -100,10 +100,10 @@
 
   import { columns as columnColumns } from './menu_column_field.data';
 
-  import MenuButtonDrawer from '/@/views/fuadmin/system/menu/add_button/MenuButtonDrawer.vue';
+  import MenuButtonDrawer from '/@/views/wzops/system/menu/add_button/MenuButtonDrawer.vue';
   import { useI18n } from '/@/hooks/web/useI18n';
-  import MenuColumnFieldDrawer from '/@/views/fuadmin/system/menu/add_button/MenuColumnFieldDrawer.vue';
-  import MenuColumnQuickDrawer from '/@/views/fuadmin/system/menu/add_button/MenuColumnQuickDrawer.vue';
+  import MenuColumnFieldDrawer from '/@/views/wzops/system/menu/add_button/MenuColumnFieldDrawer.vue';
+  import MenuColumnQuickDrawer from '/@/views/wzops/system/menu/add_button/MenuColumnQuickDrawer.vue';
   import { useMessage } from '/@/hooks/web/useMessage';
 
   export default defineComponent({

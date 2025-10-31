@@ -10,7 +10,7 @@
 
 ## 第一次运行
 
-进入django容器输出化数据库`docker-compose exec fuadmin-django bash`
+进入django容器输出化数据库`docker-compose exec wzops-django bash`
 
 ```sh
 python manage.py makemigrations system demo

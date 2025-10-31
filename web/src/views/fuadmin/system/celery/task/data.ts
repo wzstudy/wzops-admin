@@ -8,7 +8,7 @@ import { BasicColumn } from '/@/components/Table';
 import { FormSchema } from '/@/components/Table';
 import { h } from 'vue';
 import { Tag } from 'ant-design-vue';
-import { getCrontabData, getIntervalData } from '/@/views/fuadmin/system/celery/util';
+import { getCrontabData, getIntervalData } from '/@/views/wzops/system/celery/util';
 import { useI18n } from '/@/hooks/web/useI18n';
 const { t } = useI18n();
 

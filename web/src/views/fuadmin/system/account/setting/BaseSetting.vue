@@ -34,7 +34,7 @@
   import { useUserStore } from '/@/store/modules/user';
   import { uploadApi } from '/@/api/sys/upload';
   import { useRoute } from 'vue-router';
-  import { createOrUpdate, getById } from '/@/views/fuadmin/system/account/account.api';
+  import { createOrUpdate, getById } from '/@/views/wzops/system/account/account.api';
   import { useI18n } from '/@/hooks/web/useI18n';
 
   export default defineComponent({

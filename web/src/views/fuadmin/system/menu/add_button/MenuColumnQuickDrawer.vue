@@ -58,7 +58,7 @@
   import { BasicTable, useTable, TableAction } from '/@/components/Table';
   import { useI18n } from '/@/hooks/web/useI18n';
   import { defHttp } from '/@/utils/http/axios';
-  import { batchCreate } from '/@/views/fuadmin/system/menu/add_button/menu_column_field.api';
+  import { batchCreate } from '/@/views/wzops/system/menu/add_button/menu_column_field.api';
   import { InfoCircleOutlined } from '@ant-design/icons-vue';
   import { Tooltip } from 'ant-design-vue';
   import BasicHelp from "/@/components/Basic/src/BasicHelp.vue";

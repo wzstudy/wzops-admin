@@ -6,7 +6,7 @@
  */
 import { BasicColumn } from '/@/components/Table';
 import { FormSchema } from '/@/components/Table';
-import { getCrontabData } from '/@/views/fuadmin/system/celery/util';
+import { getCrontabData } from '/@/views/wzops/system/celery/util';
 import { useI18n } from '/@/hooks/web/useI18n';
 import { computed } from 'vue';
 import { useLocaleStoreWithOut } from '/@/store/modules/locale';

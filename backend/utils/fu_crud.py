@@ -11,7 +11,7 @@ from urllib.parse import unquote
 import openpyxl
 from django.http import FileResponse
 from django.shortcuts import get_object_or_404
-from fuadmin.settings import BASE_DIR, STATIC_URL
+from wzops.settings import BASE_DIR, STATIC_URL
 from ninja import Schema
 from openpyxl import load_workbook
 

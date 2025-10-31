@@ -5,7 +5,7 @@ import shutil
 
 from django.core.management.base import BaseCommand
 
-from fuadmin.settings import BASE_DIR
+from wzops.settings import BASE_DIR
 
 logger = logging.getLogger(__name__)
 

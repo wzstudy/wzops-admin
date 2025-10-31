@@ -11,7 +11,7 @@ import uuid
 from django.apps import apps
 from django.db import models
 
-from fuadmin import settings
+from wzops import settings
 
 
 class CoreModel(models.Model):

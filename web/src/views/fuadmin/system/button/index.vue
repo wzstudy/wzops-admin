@@ -40,8 +40,8 @@
   import { useDrawer } from '/@/components/Drawer';
   import ButtonDrawer from './ButtonDrawer.vue';
 
-  import { deleteItem, getList } from '/@/views/fuadmin/system/button/button.api';
-  import { columns, searchFormSchema } from '/@/views/fuadmin/system/button/button.data';
+  import { deleteItem, getList } from '/@/views/wzops/system/button/button.api';
+  import { columns, searchFormSchema } from '/@/views/wzops/system/button/button.data';
   import { useI18n } from '/@/hooks/web/useI18n';
 
   export default defineComponent({

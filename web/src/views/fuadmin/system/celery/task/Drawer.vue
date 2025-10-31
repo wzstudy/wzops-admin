@@ -16,9 +16,9 @@
   import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
   import { createOrUpdate } from './api';
   import { formSchema } from './data';
-  import { getAllList as getCrontabList } from '/@/views/fuadmin/system/celery/crontab/api';
-  import { getAllList as getIntervalList } from '/@/views/fuadmin/system/celery/interval/api';
-  import { getCrontabData, getIntervalData } from '/@/views/fuadmin/system/celery/util';
+  import { getAllList as getCrontabList } from '/@/views/wzops/system/celery/crontab/api';
+  import { getAllList as getIntervalList } from '/@/views/wzops/system/celery/interval/api';
+  import { getCrontabData, getIntervalData } from '/@/views/wzops/system/celery/util';
   import { useI18n } from '/@/hooks/web/useI18n';
 
   export default defineComponent({

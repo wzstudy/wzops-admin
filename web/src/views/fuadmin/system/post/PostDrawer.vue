@@ -15,7 +15,7 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
   import { createOrUpdate } from './post.api';
-  import { formSchema } from '/@/views/fuadmin/system/post/post.data';
+  import { formSchema } from '/@/views/wzops/system/post/post.data';
   import { useI18n } from '/@/hooks/web/useI18n';
 
   export default defineComponent({

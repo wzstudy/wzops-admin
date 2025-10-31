@@ -10,7 +10,7 @@ from urllib.parse import unquote
 
 from django.http import FileResponse, StreamingHttpResponse, HttpResponse
 from django.shortcuts import get_object_or_404
-from fuadmin.settings import BASE_DIR, STATIC_URL
+from wzops.settings import BASE_DIR, STATIC_URL
 from ninja import Field
 from ninja import File as NinjaFile
 from ninja import ModelSchema, Query, Router, Schema

@@ -9,7 +9,7 @@ import re
 from datetime import datetime
 
 # from django.core.cache import cache
-from fuadmin.settings import DEMO, SECRET_KEY, WHITE_LIST
+from wzops.settings import DEMO, SECRET_KEY, WHITE_LIST
 from ninja.security import HttpBearer
 from system.models import MenuButton, Users
 

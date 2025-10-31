@@ -13,7 +13,7 @@ import pypinyin
 from django.core.management import BaseCommand
 from django.db import connection
 
-from fuadmin.settings import BASE_DIR
+from wzops.settings import BASE_DIR
 from system.models import Area
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'application.settings')

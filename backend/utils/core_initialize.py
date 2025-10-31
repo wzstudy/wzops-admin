@@ -1,5 +1,5 @@
 # 初始化基类
-from fuadmin import settings
+from wzops import settings
 
 
 class CoreInitialize:

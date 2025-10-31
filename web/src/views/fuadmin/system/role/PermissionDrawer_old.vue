@@ -64,8 +64,8 @@
   import { createOrUpdate, getMenuList } from './role.api';
   import { Row, Col } from 'ant-design-vue';
   import XEUtils from 'xe-utils';
-  import { formPermissionSchema } from '/@/views/fuadmin/system/role/role.data';
-  import { getDeptList } from '/@/views/fuadmin/system/dept/dept.api';
+  import { formPermissionSchema } from '/@/views/wzops/system/role/role.data';
+  import { getDeptList } from '/@/views/wzops/system/dept/dept.api';
 
   export default defineComponent({
     name: 'PermissionDrawer',

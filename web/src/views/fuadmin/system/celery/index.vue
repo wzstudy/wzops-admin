@@ -20,9 +20,9 @@
 <script lang="ts">
   import { Row, Col } from 'ant-design-vue';
   import { defineComponent } from 'vue';
-  import Interval from '/@/views/fuadmin/system/celery/interval/index.vue';
-  import Crontab from '/@/views/fuadmin/system/celery/crontab/index.vue';
-  import Task from '/@/views/fuadmin/system/celery/task/index.vue';
+  import Interval from '/@/views/wzops/system/celery/interval/index.vue';
+  import Crontab from '/@/views/wzops/system/celery/crontab/index.vue';
+  import Task from '/@/views/wzops/system/celery/task/index.vue';
   export default defineComponent({
     name: 'Celery',
     components: { Task, Crontab, Interval, Col, Row },

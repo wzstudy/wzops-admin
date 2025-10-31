@@ -5,7 +5,7 @@
 # @Software: PyCharm
 # -*- coding: utf-8 -*-
 
-from fuadmin.settings import SECRET_KEY
+from wzops.settings import SECRET_KEY
 from system.models import Dept
 
 from .fu_jwt import FuJwt

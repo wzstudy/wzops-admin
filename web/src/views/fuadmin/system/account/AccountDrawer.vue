@@ -24,7 +24,7 @@
   import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { accountFormSchema } from './account.data';
-  import { createOrUpdate } from '/@/views/fuadmin/system/account/account.api';
+  import { createOrUpdate } from '/@/views/wzops/system/account/account.api';
   import { getDeptList } from '../dept/dept.api';
   import { CropperAvatar } from '/@/components/Cropper';
   import { uploadApi } from '/@/api/sys/upload';

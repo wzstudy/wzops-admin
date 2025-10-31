@@ -6,7 +6,7 @@
 # QQ: 939589097
 from celery.app import task
 
-from fuadmin.celery import app
+from wzops.celery import app
 
 
 @app.task(name="system.tasks.test_task")

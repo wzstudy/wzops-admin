@@ -9,4 +9,4 @@ RUN python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ -r requi
 COPY ./backend .
 COPY ./backend/conf/docker.py conf/env.py
 
-CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "fuadmin.asgi:application"]
+CMD ["daphne", "-b", "0.0.0.0", "-p", "8000", "wzops.asgi:application"]

@@ -10,12 +10,12 @@
 import { defineComponent, ref, computed, unref, reactive } from "vue";
 import { BasicModal, useModalInner } from "/@/components/Modal";
 import { Steps } from "ant-design-vue";
-import BasicSetting from "/@/views/fuadmin/system/code-generator/template/design/basic-setting/index.vue";
-import FormDesign from "/@/views/fuadmin/system/code-generator/template/design/form-design/index.vue";
+import BasicSetting from "/@/views/wzops/system/code-generator/template/design/basic-setting/index.vue";
+import FormDesign from "/@/views/wzops/system/code-generator/template/design/form-design/index.vue";
 import { BasicForm, useForm } from "/@/components/Form";
 import { createOrUpdate } from "/@/views/demo/api";
 import { IFormConfig } from "/@/views/sys/form-design/typings/v-form-component";
-import { formConfigData } from "/@/views/fuadmin/system/code-generator/test/data";
+import { formConfigData } from "/@/views/wzops/system/code-generator/test/data";
 
 export default defineComponent({
   name: "Modal",

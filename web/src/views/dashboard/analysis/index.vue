@@ -63,7 +63,7 @@
 
   const fastApiUrl = 'http://124.222.210.96:7070';
 
-  const fastApiOpenUrl = 'https://gitee.com/fuadmin/fu-fastapi-vue';
+  const fastApiOpenUrl = 'https://gitee.com/wzops/fu-fastapi-vue';
 
   setTimeout(() => {
     loading.value = false;

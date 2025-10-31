@@ -92,7 +92,7 @@ export default {
     breadcrumb: 'Breadcrumbs',
     breadcrumbFlat: 'Flat Mode',
     breadcrumbFlatDetail: 'Flat mode details',
-    requestDemo: 'Retry request fuadmin',
+    requestDemo: 'Retry request wzops',
 
     breadcrumbChildren: 'Level mode',
     breadcrumbChildrenDetail: 'Level mode detail',

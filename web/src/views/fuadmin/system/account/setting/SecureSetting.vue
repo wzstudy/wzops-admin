@@ -19,7 +19,7 @@
   import headerImg from '/@/assets/images/header.jpg';
   import { secureSetschemas } from './data';
   import { useUserStore } from '/@/store/modules/user';
-  import { repassword } from '/@/views/fuadmin/system/account/account.api';
+  import { repassword } from '/@/views/wzops/system/account/account.api';
   import { useRoute } from 'vue-router';
   import { useI18n } from '/@/hooks/web/useI18n';
 

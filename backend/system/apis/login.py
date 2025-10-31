@@ -12,7 +12,7 @@ from django.forms import model_to_dict
 from django.shortcuts import get_object_or_404
 from ninja import Router, ModelSchema, Query, Schema, Field
 
-from fuadmin.settings import SECRET_KEY, TOKEN_LIFETIME
+from wzops.settings import SECRET_KEY, TOKEN_LIFETIME
 from system.models import Users, Role, MenuButton, MenuColumnField
 from utils.fu_jwt import FuJwt
 from utils.fu_response import FuResponse

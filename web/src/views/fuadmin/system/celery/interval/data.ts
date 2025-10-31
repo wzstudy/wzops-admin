@@ -6,7 +6,7 @@
  */
 import { BasicColumn } from '/@/components/Table';
 import { FormSchema } from '/@/components/Table';
-import { getIntervalData } from '/@/views/fuadmin/system/celery/util';
+import { getIntervalData } from '/@/views/wzops/system/celery/util';
 import { useI18n } from '/@/hooks/web/useI18n';
 const { t } = useI18n();
 

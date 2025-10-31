@@ -16,7 +16,7 @@
 <script lang="ts">
   import { defineComponent, nextTick, onMounted, ref, unref } from 'vue';
   import { BasicTree, TreeActionType, TreeItem } from '/@/components/Tree';
-  import { getMenuList } from '/@/views/fuadmin/system/role/role.api';
+  import { getMenuList } from '/@/views/wzops/system/role/role.api';
 
   export default defineComponent({
     name: 'MenuPermission',

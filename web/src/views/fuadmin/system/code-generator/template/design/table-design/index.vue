@@ -107,7 +107,7 @@
   import {
     columnFieldsColumns,
     searchColumns,
-  } from '/@/views/fuadmin/system/code-generator/template/design/table-design/data';
+  } from '/@/views/wzops/system/code-generator/template/design/table-design/data';
 
   export default defineComponent({
     name: 'TableDesign',

@@ -8,7 +8,7 @@
 from typing import List
 
 from django.shortcuts import get_object_or_404
-from fuadmin.settings import SECRET_KEY
+from wzops.settings import SECRET_KEY
 from ninja import Field, ModelSchema, Query, Router, Schema
 from ninja.pagination import paginate
 from system.models import Menu, MenuButton, Users

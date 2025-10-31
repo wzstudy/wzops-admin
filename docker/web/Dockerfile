@@ -7,6 +7,6 @@ RUN npm install --registry=https://registry.npmmirror.com -g pnpm \
     && pnpm build
 
 FROM nginx:alpine
-COPY ./docker/web/nginx.conf /etc/nginx/conf.d/fuadmin.conf
+COPY ./docker/web/nginx.conf /etc/nginx/conf.d/wzops.conf
 COPY --from=DIST /web/dist /usr/share/nginx/html
 

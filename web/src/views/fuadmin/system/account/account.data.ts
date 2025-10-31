@@ -10,8 +10,8 @@ import { FormSchema } from '/@/components/Table';
 import { h } from 'vue';
 import { Tag, Image } from 'ant-design-vue';
 import { rules } from '/@/utils/helper/validator';
-import { getAllList } from '/@/views/fuadmin/system/role/role.api';
-import { getAllList as getPostAllList } from '/@/views/fuadmin/system/post/post.api';
+import { getAllList } from '/@/views/wzops/system/role/role.api';
+import { getAllList as getPostAllList } from '/@/views/wzops/system/post/post.api';
 import { useI18n } from '/@/hooks/web/useI18n';
 const { t } = useI18n();
 

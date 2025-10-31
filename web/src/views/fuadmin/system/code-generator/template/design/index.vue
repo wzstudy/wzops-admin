@@ -54,10 +54,10 @@
   import { defineComponent, ref, computed, unref, reactive } from 'vue';
   import { BasicModal, useModalInner } from '/@/components/Modal';
   import { Steps, Space } from 'ant-design-vue';
-  import BasicSetting from '/@/views/fuadmin/system/code-generator/template/design/basic-setting/index.vue';
-  import FormDesign from '/@/views/fuadmin/system/code-generator/template/design/form-design/index.vue';
-  import TableDesign from '/@/views/fuadmin/system/code-generator/template/design/table-design/index.vue';
-  import { createOrUpdate } from '/@/views/fuadmin/system/code-generator/template/api';
+  import BasicSetting from '/@/views/wzops/system/code-generator/template/design/basic-setting/index.vue';
+  import FormDesign from '/@/views/wzops/system/code-generator/template/design/form-design/index.vue';
+  import TableDesign from '/@/views/wzops/system/code-generator/template/design/table-design/index.vue';
+  import { createOrUpdate } from '/@/views/wzops/system/code-generator/template/api';
 
   export default defineComponent({
     name: 'DesignModal',

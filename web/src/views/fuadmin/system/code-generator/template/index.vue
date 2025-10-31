@@ -108,7 +108,7 @@
   import { useMessage } from '/@/hooks/web/useMessage';
   import { downloadByData } from '/@/utils/file/download';
   import { useI18n } from '/@/hooks/web/useI18n';
-  import DesignModal from '/@/views/fuadmin/system/code-generator/template/design/index.vue';
+  import DesignModal from '/@/views/wzops/system/code-generator/template/design/index.vue';
 
   export default defineComponent({
     name: 'GeneratorTemplate',

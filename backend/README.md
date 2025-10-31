@@ -1,6 +1,6 @@
 # FuAdmin
 
-[![img](https://img.shields.io/badge/license-Apache%202.0-dark)](https://gitee.com/fuadmin/fu-admin/blob/master/LICENSE) [![img](https://img.shields.io/badge/python-%3E=3.7.x-green.svg)](https://python.org/) [![PyPI - Django Version badge](https://img.shields.io/badge/django%20versions-4.0-blue)](https://docs.djangoproject.com/zh-hans/4.0.4/) [![img](https://img.shields.io/badge/node-%3E%3D%2016.0.0-brightgreen)](https://nodejs.org/zh-cn/) [![img](https://gitee.com/fuadmin/fu-admin/badge/star.svg?theme=dark)](https://gitee.com/fuadmin/fu-admin) [![GitHub stars](https://img.shields.io/github/stars/FuAdmin/FuAdmin.svg?theme=dark&label=Github)](https://github.com/FuAdmin/FuAdmin)
+[![img](https://img.shields.io/badge/license-Apache%202.0-dark)](https://gitee.com/wzops/fu-admin/blob/master/LICENSE) [![img](https://img.shields.io/badge/python-%3E=3.7.x-green.svg)](https://python.org/) [![PyPI - Django Version badge](https://img.shields.io/badge/django%20versions-4.0-blue)](https://docs.djangoproject.com/zh-hans/4.0.4/) [![img](https://img.shields.io/badge/node-%3E%3D%2016.0.0-brightgreen)](https://nodejs.org/zh-cn/) [![img](https://gitee.com/wzops/fu-admin/badge/star.svg?theme=dark)](https://gitee.com/wzops/fu-admin) [![GitHub stars](https://img.shields.io/github/stars/FuAdmin/FuAdmin.svg?theme=dark&label=Github)](https://github.com/FuAdmin/FuAdmin)
 
 ## 为什么使用 Django-Ninja 和 Vue3
 
@@ -29,7 +29,7 @@
 
 ## 平台简介
 
-💡 [fu-admin-web](https://gitee.com/fuadmin/fu-admin-web) 采用 VUE3，TS 开发。 💡 [fu-admin-backend](https://gitee.com/fuadmin/fu-admin-backend) 采用 Python，Django 和 Django-Ninija 开发。数据库支持MySql，SqlServer，Sqlite。
+💡 [fu-admin-web](https://gitee.com/wzops/fu-admin-web) 采用 VUE3，TS 开发。 💡 [fu-admin-backend](https://gitee.com/wzops/fu-admin-backend) 采用 Python，Django 和 Django-Ninija 开发。数据库支持MySql，SqlServer，Sqlite。
 
 - 🧑‍🤝‍🧑 前端采用[VbenAdmin](https://vvbin.cn/doc-next) 、[Vue3](https://cn.vuejs.org/)、[Ant Design Vue](https://www.antdv.com/docs/vue/getting-started-cn)。
 - 👭 后端采用 Python 语言 Django 框架以及强大的 [Django Ninja](https://django-ninja.rest-framework.com/)。
@@ -58,7 +58,7 @@
 |        | 项目地址                                |
 |--------|-------------------------------------|
 | github | https://github.com/FuAdmin/fu-admin |
-| 码云     | https://gitee.com/fuadmin/fu-admin  | 
+| 码云     | https://gitee.com/wzops/fu-admin  | 
 
 ## 内置功能
 
@@ -86,7 +86,7 @@ Redis(可选，最新版)
 
 ```bash
 # 克隆项目
-git https://gitee.com/fuadmin/fu-admin.git
+git https://gitee.com/wzops/fu-admin.git
 
 # 进入项目目录
 cd web
@@ -106,7 +106,7 @@ yarn run dev
 
 ```bash
 # 克隆项目
-git https://gitee.com/fuadmin/fu-admin.git
+git https://gitee.com/wzops/fu-admin.git
 # 进入项目目录
 cd backend
 # 在 `env.py` 中配置数据库信息

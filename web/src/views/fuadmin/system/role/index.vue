@@ -70,7 +70,7 @@
   import PermissionDrawer from './PermissionDrawer/index.vue';
 
   import { columns, searchFormSchema } from './role.data';
-  import { getList, deleteItem } from '/@/views/fuadmin/system/role/role.api';
+  import { getList, deleteItem } from '/@/views/wzops/system/role/role.api';
   import { message, Space } from 'ant-design-vue';
   import { useMessage } from '/@/hooks/web/useMessage';
   import { useI18n } from '/@/hooks/web/useI18n';

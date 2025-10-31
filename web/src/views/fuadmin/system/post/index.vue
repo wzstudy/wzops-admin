@@ -82,8 +82,8 @@
     getList,
     exportData,
     importData,
-  } from '/@/views/fuadmin/system/post/post.api';
-  import { columns, searchFormSchema } from '/@/views/fuadmin/system/post/post.data';
+  } from '/@/views/wzops/system/post/post.api';
+  import { columns, searchFormSchema } from '/@/views/wzops/system/post/post.data';
   import { message } from 'ant-design-vue';
   import { useMessage } from '/@/hooks/web/useMessage';
   import { downloadByData } from '/@/utils/file/download';

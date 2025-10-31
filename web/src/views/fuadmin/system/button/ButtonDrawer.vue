@@ -15,7 +15,7 @@
   import { BasicForm, useForm } from '/@/components/Form/index';
   import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
   import { createOrUpdate } from './button.api';
-  import { formSchema } from '/@/views/fuadmin/system/button/button.data';
+  import { formSchema } from '/@/views/wzops/system/button/button.data';
   import { useI18n } from '/@/hooks/web/useI18n';
 
   export default defineComponent({

@@ -6,7 +6,7 @@ import os
 # 数据库类型 MYSQL/SQLSERVER/SQLITE3
 DATABASE_TYPE = "MYSQL"
 # 数据库地址
-DATABASE_HOST = "fuadmin-mysql"
+DATABASE_HOST = "wzops-mysql"
 # 数据库端口
 DATABASE_PORT = 3306
 # 数据库用户名
@@ -14,13 +14,13 @@ DATABASE_USER = "root"
 # 数据库密码
 DATABASE_PASSWORD = "root"
 # 数据库名
-DATABASE_NAME = "fuadmin"
+DATABASE_NAME = "wzops"
 
 # ================================================= #
 # ************** redis配置，无redis 可不进行配置  ************** #
 # ================================================= #
 REDIS_PASSWORD = ""
-REDIS_HOST = "fuadmin-redis"
+REDIS_HOST = "wzops-redis"
 REDIS_URL = f'redis://:{REDIS_PASSWORD or ""}@{REDIS_HOST}:6379'
 # ================================================= #
 # ************** 其他 配置  ************** #
