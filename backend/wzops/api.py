@@ -5,6 +5,7 @@
 # @Software: PyCharm
 from apps.demo.router import demo_router
 from apps.browser.router import browser_router
+from apps.proxy.router import proxy_router
 from system.router import system_router
 from utils.fu_auth import GlobalAuth
 from utils.fu_ninja import FuNinjaAPI
@@ -28,3 +29,4 @@ api.add_router('/system/', system_router)
 api.add_router('/demo/', demo_router)
 api.add_router('/generator/', generator_router)
 api.add_router('/browser/', browser_router)
+api.add_router('/proxy/', proxy_router)

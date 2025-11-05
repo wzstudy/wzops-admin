@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'system',
     'apps.demo',
     'apps.browser',
+    'apps.proxy',
     'generator',
 ]
 
