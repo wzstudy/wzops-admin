@@ -6,7 +6,7 @@ DATABASE_TYPE = "MYSQL"
 # 数据库地址
 DATABASE_HOST = "192.168.1.5"
 # 数据库端口
-DATABASE_PORT = 3506
+DATABASE_PORT = 3306
 # 数据库用户名
 DATABASE_USER = "root"
 # 数据库密码
