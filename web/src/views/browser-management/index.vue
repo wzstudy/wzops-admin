@@ -1,36 +1,26 @@
 <template>
   <PageWrapper title="比特浏览器管理">
-    <template #headerContent>
-      <div class="flex justify-between items-center">
-        <div class="flex-1">
-          <a-input-search
-            placeholder="搜索窗口名称、备注信息或代理信息"
-            allowClear
-            enterButton
-            size="middle"
-            @search="handleSearch"
-            class="w-1/2"
-          />
-        </div>
-        <div class="ml-4">
-          <a-button type="primary" @click="handleAdd">
-            <template #icon>
-              <PlusOutlined />
-            </template>
-            添加窗口
-          </a-button>
-        </div>
-      </div>
+    <template #tableTitle>
+      <Space style="height: 40px">
+        <a-input-search
+          placeholder="搜索窗口名称、备注信息或代理信息"
+          allowClear
+          enterButton
+          size="middle"
+          @search="handleSearch"
+          class="w-1/2"
+        />
+        <a-button
+          type="primary"
+          preIcon="ant-design:plus-outlined"
+          @click="handleAdd"
+        >
+          {{ t('common.addText') }}
+        </a-button>
+      </Space>
     </template>
     
-    <a-table
-      :columns="columns"
-      :data-source="windowList"
-      :pagination="pagination"
-      row-key="id"
-      bordered
-      class="mt-4"
-    >
+    <BasicTable @register="registerTable">
       <template #status="{ record }">
         <a-tag :color="record.status === 'online' ? 'green' : 'red'">
           {{ record.status === 'online' ? '在线' : '离线' }}
@@ -45,16 +35,28 @@
         </div>
       </template>
       <template #action="{ record }">
-        <div class="flex">
-          <a-button type="link" @click="handleEdit(record)">
-            编辑
-          </a-button>
-          <a-button type="link" danger @click="handleDelete(record)">
-            删除
-          </a-button>
-        </div>
+        <TableAction
+          :actions="[
+            {
+              type: 'button',
+              icon: 'clarity:note-edit-line',
+              color: 'primary',
+              onClick: handleEdit.bind(null, record),
+            },
+            {
+              icon: 'ant-design:delete-outlined',
+              type: 'button',
+              color: 'error',
+              placement: 'left',
+              popConfirm: {
+                title: t('common.delHintText'),
+                confirm: handleDelete.bind(null, record.id),
+              },
+            },
+          ]"
+        />
       </template>
-    </a-table>
+    </BasicTable>
     
     <!-- 添加/编辑窗口模态框 -->
     <a-modal
@@ -114,9 +116,17 @@
 import { ref, reactive, computed, onMounted } from 'vue';
 import { message, Modal } from 'ant-design-vue';
 import { PageWrapper } from '/@/components/Page';
+import { BasicTable, useTable, TableAction } from '/@/components/Table';
+import { Space } from 'ant-design-vue';
 import { PlusOutlined } from '@ant-design/icons-vue';
 import type { TableProps } from 'ant-design-vue';
 import type { FormInstance } from 'ant-design-vue';
+import { useI18n } from '/@/hooks/web/useI18n';
+
+// 导入API函数
+import { getWindowList, createOrUpdateWindow, deleteWindow } from './api';
+
+const { t } = useI18n();
 
 // 表格列配置
 const columns: TableProps['columns'] = [
@@ -129,18 +139,17 @@ const columns: TableProps['columns'] = [
   { title: '操作', key: 'action', scopedSlots: { customRender: 'action' }, width: 120 },
 ];
 
-// 分页配置
-const pagination = reactive({
-  current: 1,
-  pageSize: 10,
-  total: 0,
-  showSizeChanger: true,
-  pageSizeOptions: ['10', '20', '50'],
-  showTotal: (total: number) => `共 ${total} 条记录`,
+// 表格配置
+const [registerTable, { reload, getSelectRows }] = useTable({
+  api: getWindowList,
+  columns,
+  pagination: {
+    pageSize: 10,
+    showSizeChanger: true,
+    pageSizeOptions: ['10', '20', '50'],
+    showTotal: (total: number) => `共 ${total} 条记录`,
+  },
 });
-
-// 窗口列表数据
-const windowList = ref<any[]>([]);
 
 // 模态框状态
 const modalVisible = ref(false);
@@ -162,35 +171,13 @@ const formRules = reactive({
   name: [{ required: true, message: '请输入窗口名称', trigger: 'blur' }],
 });
 
-// 加载窗口列表
-const loadWindowList = async () => {
-  try {
-    // 这里需要替换为实际的API调用
-    const response = await fetch('/api/browser/windows', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const data = await response.json();
-    
-    if (data.code === 0) {
-      windowList.value = data.data;
-      pagination.total = data.total;
-    } else {
-      message.error(data.message || '加载窗口列表失败');
-    }
-  } catch (error) {
-    console.error('加载窗口列表失败:', error);
-    message.error('加载窗口列表失败');
-  }
-};
-
 // 搜索处理
 const handleSearch = (value: string) => {
   console.log('搜索:', value);
   // 这里需要实现搜索功能，通常是调用API并传入搜索参数
-  loadWindowList();
+  reload({
+    search: value,
+  });
 };
 
 // 添加窗口
@@ -218,36 +205,15 @@ const handleEdit = (record: any) => {
 };
 
 // 删除窗口
-const handleDelete = (record: any) => {
-  Modal.confirm({
-    title: '确认删除',
-    content: `确定要删除窗口 "${record.name}" 吗？`,
-    okText: '删除',
-    okType: 'danger',
-    cancelText: '取消',
-    onOk: async () => {
-      try {
-        // 这里需要替换为实际的API调用
-        const response = await fetch(`/api/browser/windows/${record.id}`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        const data = await response.json();
-        
-        if (data.code === 0) {
-          message.success('删除窗口成功');
-          loadWindowList();
-        } else {
-          message.error(data.message || '删除窗口失败');
-        }
-      } catch (error) {
-        console.error('删除窗口失败:', error);
-        message.error('删除窗口失败');
-      }
-    },
-  });
+const handleDelete = async (id: number) => {
+  try {
+    await deleteWindow(id);
+    message.success('删除窗口成功');
+    reload();
+  } catch (error) {
+    console.error('删除窗口失败:', error);
+    message.error('删除窗口失败');
+  }
 };
 
 // 模态框确认
@@ -257,31 +223,19 @@ const handleModalOk = async () => {
   try {
     await formRef.value.validateFields();
     
-    const method = formData.id ? 'PUT' : 'POST';
-    const url = formData.id ? `/api/browser/windows/${formData.id}` : '/api/browser/windows';
-    
-    // 这里需要替换为实际的API调用
-    const response = await fetch(url, {
-      method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+    await createOrUpdateWindow(
+      {
+        id: formData.id,
         name: formData.name,
         proxy_domain: formData.proxy_domain,
         remark: formData.remark,
-      }),
-    });
+      },
+      !!formData.id
+    );
     
-    const data = await response.json();
-    
-    if (data.code === 0) {
-      message.success(formData.id ? '更新窗口成功' : '添加窗口成功');
-      modalVisible.value = false;
-      loadWindowList();
-    } else {
-      message.error(data.message || (formData.id ? '更新窗口失败' : '添加窗口失败'));
-    }
+    message.success(formData.id ? '更新窗口成功' : '添加窗口成功');
+    modalVisible.value = false;
+    reload();
   } catch (error) {
     console.error('表单验证失败:', error);
   }
@@ -293,16 +247,9 @@ const handleModalCancel = () => {
   formRef.value?.resetFields();
 };
 
-// 分页变化处理
-const handlePaginationChange = (page: number, pageSize: number) => {
-  pagination.current = page;
-  pagination.pageSize = pageSize;
-  loadWindowList();
-};
-
 // 组件挂载时加载数据
 onMounted(() => {
-  loadWindowList();
+  // 表格数据会在useTable中自动加载
 });
 </script>
 
