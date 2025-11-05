@@ -26,6 +26,7 @@ class Filters(FuFilters):
     proxy_domain: str = Field(None, alias="proxy_domain")
     status: str = Field(None, alias="status")
     id: str = Field(None, alias="window_id")
+    search: str = Field(None, alias="search")
 
 
 # 设置请求接收字段
