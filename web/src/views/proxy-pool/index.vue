@@ -14,7 +14,7 @@
             type="default"
             preIcon="ant-design:check-circle-outlined"
             @click="handleBatchValidate"
-            :disabled="selectedRowKeys.length === 0"
+            :disabled="selectedRowKeys?.value?.length === 0"
           >
             批量验证
           </a-button>
@@ -169,6 +169,7 @@
         handleBulkDelete,
         handleBatchValidate,
         handleSuccess,
+        selectedRowKeys,
       };
     },
   });

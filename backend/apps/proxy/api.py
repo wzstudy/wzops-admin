@@ -3,7 +3,8 @@
 # @Author  : Trae
 # @FileName: api.py
 # @Software: PyCharm
-from typing import List
+from typing import List, Optional
+from datetime import datetime
 
 from apps.proxy.models import ProxyIP
 from ninja import Field, ModelSchema, Query, Router
@@ -39,6 +40,7 @@ class ProxyIPSchemaIn(ModelSchema):
 
 # 设置响应字段
 class ProxyIPSchemaOut(ModelSchema):
+    sort: Optional[int]
     class Config:
         model = ProxyIP
         model_fields = '__all__'
