@@ -1,11 +1,7 @@
 import { defHttp } from '/@/utils/http/axios';
 
 enum Api {
-  PROXY_IP_LIST = '/proxy/ips',
-  CREATE_PROXY_IP = '/proxy/ips',
-  UPDATE_PROXY_IP = '/proxy/ips/',
-  DELETE_PROXY_IP = '/proxy/ips/',
-  VALIDATE_PROXY_IPS = '/proxy/ips/validate-batch',
+  prefix = '/api/proxy/ips',
 }
 
 export interface ProxyIP {
@@ -39,34 +35,34 @@ export interface ProxyIPFormParams {
 
 export const getProxyIPList = (params: ProxyIPListParams) => {
   return defHttp.get<{ items: ProxyIP[]; total: number }>({
-    url: Api.PROXY_IP_LIST,
+    url: Api.prefix,
     params,
   });
 };
 
 export const createProxyIP = (params: ProxyIPFormParams) => {
   return defHttp.post<ProxyIP>({
-    url: Api.CREATE_PROXY_IP,
+    url: Api.prefix,
     params,
   });
 };
 
 export const updateProxyIP = (id: string, params: ProxyIPFormParams) => {
   return defHttp.put<ProxyIP>({
-    url: `${Api.UPDATE_PROXY_IP}${id}`,
+    url: `${Api.prefix}/${id}`,
     params,
   });
 };
 
 export const deleteProxyIP = (id: string) => {
   return defHttp.delete<boolean>({
-    url: `${Api.DELETE_PROXY_IP}${id}`,
+    url: `${Api.prefix}/${id}`,
   });
 };
 
 export const validateProxyIPs = (ip_ids: string[]) => {
   return defHttp.post<boolean>({
-    url: Api.VALIDATE_PROXY_IPS,
+    url: `${Api.prefix}/validate-batch`,
     params: { ip_ids },
   });
 };
